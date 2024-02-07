@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css"><!--link css-->
     <title>Weather Dashboard</title>
 </head>
 <body>
 
   <header>
-      <h1>Weather Dashboard</h1>
+      <h1>Weather Dashboard</h1><!--header/title (style late)-->
   </header>
 
   <h2> Search City Here</h2>
 
-  <input type=""/>
+  <form id="searchForm">
+      <input type="text" id="cityInput" placeholder="Enter city name"/>
+      <button type="submit">SEARCH</button>
+  </form>
 
-  <button> SEARCH</button>
+  <div id="currentWeatherInfo"></div>
+  <div id="forecastInfo"></div>
+  <div id="currentWeather"></div>
+  <div id="forecast"></div>
+  <ul id="historyList"></ul>
 
-    <script src="./assets/script.js"></script>
+  <script src="./assets/script.js"></script><!--links javascript-->
 </body>
 </html>
