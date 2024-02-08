@@ -1,5 +1,30 @@
 header{
   text-align: center;
-  background-color: rgb(4, 4, 62);
+  background-color: rgb(14, 4, 92);
   color: white;
+}
+
+.five-day{
+  border: 3px solid white;
+  padding: 20px;
+  border-color: rgb(16, 3, 71);
+  color: white;
+  border-width: 8px;
+
+}
+
+#forecast{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}
+
+body{
+  background-image: url(./weather.webp);
+  height: 2000px;
+  width: auto;
+  flex-wrap: wrap;
+  color: white;
+  padding: 20px;
+  background-repeat: repeat;
 }

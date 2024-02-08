@@ -86,28 +86,29 @@ function displayCurrentWeather(currentData) {
     const currentWeatherInfo = document.getElementById('currentWeatherInfo');
     const cityName = document.createElement("h2")
     cityName.textContent = currentData.name
+
     const temp = document.createElement("p")//follow this to creat more p tags. creat p tags for what you want to see on page a sfar as the infor you fetched. this one was for temp.
-    temp.textContent = `tempiture: ${currentData.main.temp}`// ${}template expression
+    temp.textContent = `tempiture: ${currentData.main.temp} degrees`// ${}template expression
 
     //dispaly humidity
     const humidity = document.createElement("p")
-    humidity.textContent = `humidity: ${currentData.main.humidity}`
+    humidity.textContent = `humidity: ${currentData.main.humidity} %`
 
     //show visibility
     const visibility = document.createElement("p")
-    visibility.textContent = `visibility: ${currentData.main.visibility}`
+    visibility.textContent = `visibility: ${currentData.visibility} %`
 
     //display wind
     const wind = document.createElement("p")
-    wind.textContent = `wind: ${currentData.main.wind}`
+    wind.textContent = `wind: ${currentData.wind.speed} mph`
 
     //display clouds
     const clouds = document.createElement("p")
-    clouds.textContent = `clouds: ${currentData.main.clouds}`
+    clouds.textContent = `clouds: ${currentData.clouds.all}%`// got rid of .main
     
     // Display current weather information on the webpage
     currentWeatherInfo.textContent = `Current Weather: `;
-    currentWeatherInfo.append(cityName, temp, humidity, visibility, wind, clouds)// append how to attach multiple things to html
+    currentWeatherInfo.append(cityName, temp, humidity, visibility, wind, clouds);// append how to attach multiple things to html
 }
 
 // Function to display 5-day forecast
@@ -118,6 +119,32 @@ function displayForecast(dailyData) {
     // Assuming you have an element with id 'forecastInfo' for displaying the forecast
     const forecastInfo = document.getElementById('forecastInfo');
     
-    // Display 5-day forecast information on the webpage
-    forecastInfo.textContent = `5-Day Forecast: ${JSON.stringify(dailyData)}`;
+    // Display 5-day forecast information on the webpage. not displaying correctly 
+    forecastInfo.textContent = `5-Day Forecast:`;
+
+    for (let i= 0; i < 5; i++) {
+        const container = document.createElement("div");
+        container.setAttribute("class", "five-day");
+
+        const dateEl = document.createElement("p");
+        dateEl.textContent = `${dailyData[i].dt_txt}`;
+
+        const tempEl = document.createElement("p");
+        tempEl.textContent = `${dailyData[i].main.temp}`;
+
+        const windEl = document.createElement("p");
+        windEl.textContent = `${dailyData[i].wind.speed}`;
+
+        const humidityEl = document.createElement("p");
+        humidityEl.textContent = `${dailyData[i].main.humidity}`;
+
+        forecastDiv.appendChild(container);
+        container.appendChild(dateEl);
+        container.appendChild(tempEl);
+        container.appendChild(windEl);
+        container.appendChild(humidityEl);
+    
+        
+    }
 }
+
